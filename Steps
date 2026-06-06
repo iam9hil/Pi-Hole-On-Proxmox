@@ -18,4 +18,15 @@
             2m. DNS: Leave as default
             2n. Finish
 
-3. 
+3. Starting the container
+  3a. (Optional) Start at boot
+    3a. Options > Start at Boot > Yes
+3b. Open the container > Console > Login in as: root
+  3b. Type: curl -sSL https://install.pi-hole.net | bash
+    3c. During the installation setup
+      3c. Upstream DNS: Google or CloudFlare
+      3c. Block List: Leave default checked
+      3c. Install web interface: Yes
+      3c. Install lighttpd: Yes
+      3c. Log queries: Yes
+      3c. Privacy Mode: Show everything
