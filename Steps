@@ -2,4 +2,20 @@
 
 1. In Proxmox > >  Local (DeviceName) > CT Templates > Ubuntu ISO > Download it
 
-2. Create
+2. **IMPORTANT: During Setup**
+  2a. CT ID: 100
+  2b. Hostname: pihole
+  2c. Password
+  2d. Uncheck "Unprivilged container"
+  2e. Choose the Ubuntu template
+      2f. RAM: 512 Mb
+      2g. Disk size: 4 GB
+      2h. Cores: 1
+            2i. Bridge: vmbr0
+            2j. IPv4: Static
+            2k. Ipv4/CIDR: 192.168.x.x/24    (( #PiHole needs its own IP / And check the gateways IP range ))
+            2l. Gateway 192.168.1.1
+            2m. DNS: Leave as default
+            2n. Finish
+
+3. 
