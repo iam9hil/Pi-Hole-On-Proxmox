@@ -45,4 +45,54 @@
 
 (Backup PiHole is the same process)
 
+___________________________________________________________________________________________________________________
+
+**If its not sunshine and rainbow....
+(The PiHole Container won't load in / its just not working at all)
+(Sometimes the container doesn't have the IP address at all...)
+
+1.Go into the Server terminal from Proxmox
+  1a. Enter: pct enter 100 
+
+2. Now you're in the PiHole container
+  2a. Run: ip a
+      (this checks your IP address, you most likely won't have one)
+
+3. Setup the ip address
+  3a. ip addr add 192.168.x.x/24 dev eth0
+  3b. ip link set eth0 up
+  3c. ip route add default  via 192.168.1.1
+3a. Making the IP address permanent
+  3a. /etc/network/interfaces
+        auto eth0
+        iface eth0 inet static
+              address 192.168.x.x/24
+              gateway 192.168.1.1
+              dns-nameservers 192.168.1.1
+          (Crtl + X > Y > Enter > (to save it)
+
+4. Now that you have IP address and internet
+  4a. apt update && apt upgrade -y
+  4b. apt install curl -y
+
+5. Disable systemd-resolved
+  5a. systemctl disable systemd-resolved
+  5b. systemctl stop systemd-resolved
+
+6. Install Pihole
+  6a. curl -sSL https://install.pi-hole.net | bash
+6.1. The setup
+              6a    Upstream DNS: Google or CloudFlare
+              6b. Block List: Leave default checked
+              6c. Install web interface: Yes
+              6e. Install lighttpd: Yes
+              6f. Log queries: Yes
+              6g. Privacy Mode: Show everything
+
+
+
+
+
+
+
 
