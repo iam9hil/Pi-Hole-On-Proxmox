@@ -1,0 +1,5 @@
+---- Setting up the VM in Proxmox ----
+
+1. In Proxmox > >  Local (DeviceName) > CT Templates > Ubuntu ISO > Download it
+
+2. Create
