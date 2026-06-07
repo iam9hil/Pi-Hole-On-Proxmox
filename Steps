@@ -51,7 +51,12 @@ ________________________________________________________________________________
 (The PiHole Container won't load in / its just not working at all)
 (Sometimes the container doesn't have the IP address at all...)
 
+
 1.Go into the Server terminal from Proxmox
+  1a. nano /etc/pve/lxc/101.conf
+      1b. Add these 2 lines
+          unprivileged: 0
+          features: nesting=1
   1a. Enter: pct enter 100 
 
 2. Now you're in the PiHole container
@@ -88,6 +93,14 @@ ________________________________________________________________________________
               6e. Install lighttpd: Yes
               6f. Log queries: Yes
               6g. Privacy Mode: Show everything
+
+7. Make the directory
+  7a. mkdir -p /var/log/pihole
+  7b. touch /var/log/pihole/FTL.log
+  7c. touch /var/log/pihole/pihole.log
+  7d. chmod 777 /var/log/pihole
+
+to be continued...
 
 
 
